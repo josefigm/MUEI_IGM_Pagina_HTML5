@@ -40,7 +40,14 @@
     display: flex;
 }
 
-#canvas{
+.aside{
+    height: 360px;
+    width: 640px;
+    border-style: solid;
+    border-width: 1px;
+    background-color: white;
+}
+.canvas{
     border-style: solid;
     border-width: 1px;
 }
