@@ -6,7 +6,6 @@
     <title>Demostración HTML5</title>
     <link rel="stylesheet" href="./css/style.css" />
     <meta charset="UTF-8" />
-    <script src="./js/script.js"></script>
 </head>
 
 <body>
@@ -39,96 +38,127 @@
         </nav>
     </header>
     <br />
-    <div class="horizontalDiv">
-        <div class="articles">
-            <article>
-                <h2>HTML</h2>
-                <p>
-                    HTML, siglas en inglés de HyperText Markup Language
-                    (‘lenguaje de marcado de hipertexto’), hace referencia
-                    al lenguaje de marcado para la elaboración de páginas web.
-                    Es un estándar que sirve de referencia del software que
-                    conecta con la elaboración de páginas web en sus diferentes
-                    versiones, define una estructura básica y un código
-                    (denominado código HTML) para la definición de contenido
-                    de una página web, como texto, imágenes, videos, juegos,
-                    entre otros.</p>
-            </article>
-
-            <article>
-                <h2>ThreeJS</h2>
-                <p>
-                    Three.js es una biblioteca liviana escrita en JavaScript
-                    para crear y mostrar gráficos animados por computadora
-                    en 3D en un navegador Web y puede ser utilizada en
-                    conjunción con el elemento canvas de HTML5, SVG o WebGL.
-                    El código fuente está alojado en un repositorio en GitHub.
-                </p>
-            </article>
-
-            <article>
-                <h2>HTML5</h2>
-                <p>
-                    HTML5 es la nueva versión de HTML
-                    (HyperText Markup Language), lenguaje de marcado básico
-                    para crear las páginas web.
-                    Esta nueva versión tiene importantes novedades respecto
-                    a las anteriores (HTML4 y XHTML 1.0) ya que incorpora
-                    nuevos elementos para adaptarse a las nuevas necesidades
-                    de las webs de hoy en día.
-
-                    HTML5 cambia la forma de construir páginas. Podemos,
-                    por supuesto, seguir construyendo las páginas como antes,
-                    de manera estática, con texto plano, imágenes, enlaces,
-                    etc. En HTML5 se concibe la página ya no como un sitio
-                    estático, sino como algo dinámico e interactivo, más
-                    parecido a una aplicación para ordenador,
-                    (donde el usuario también puede realizar acciones) que a
-                    un texto con imágenes..
-                </p>
-            </article>
-        </div>
-        &nbsp;&nbsp;&nbsp;&nbsp;
+    <div>
         <div class="horizontalDiv">
-            <aside class="aside">
-                <video autoplay muted controls playsinline poster="images/poster.jpg" preload="metadata">
-                    <source src="video/video_web.mp4" type="video/mp4" />
-                    <p>Este navegador no soporta videos.</p>
-                </video>
-            </aside>
-        </div>
-    
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <canvas class="canvas">
+            <div class="articles">
+                <article>
+                    <h2>HTML</h2>
+                    <p>
+                        HTML, siglas en inglés de HyperText Markup Language
+                        (‘lenguaje de marcado de hipertexto’), hace referencia
+                        al lenguaje de marcado para la elaboración de páginas web.
+                        Es un estándar que sirve de referencia del software que
+                        conecta con la elaboración de páginas web en sus diferentes
+                        versiones, define una estructura básica y un código
+                        (denominado código HTML) para la definición de contenido
+                        de una página web, como texto, imágenes, videos, juegos,
+                        entre otros.</p>
+                </article>
+
+                <article>
+                    <h2>ThreeJS</h2>
+                    <p>
+                        Three.js es una biblioteca liviana escrita en JavaScript
+                        para crear y mostrar gráficos animados por computadora
+                        en 3D en un navegador Web y puede ser utilizada en
+                        conjunción con el elemento canvas de HTML5, SVG o WebGL.
+                        El código fuente está alojado en un repositorio en GitHub.
+                    </p>
+                </article>
+
+                <article>
+                    <h2>HTML5</h2>
+                    <p>
+                        HTML5 es la nueva versión de HTML
+                        (HyperText Markup Language), lenguaje de marcado básico
+                        para crear las páginas web.
+                        Esta nueva versión tiene importantes novedades respecto
+                        a las anteriores (HTML4 y XHTML 1.0) ya que incorpora
+                        nuevos elementos para adaptarse a las nuevas necesidades
+                        de las webs de hoy en día.
+
+                        HTML5 cambia la forma de construir páginas. Podemos,
+                        por supuesto, seguir construyendo las páginas como antes,
+                        de manera estática, con texto plano, imágenes, enlaces,
+                        etc. En HTML5 se concibe la página ya no como un sitio
+                        estático, sino como algo dinámico e interactivo, más
+                        parecido a una aplicación para ordenador,
+                        (donde el usuario también puede realizar acciones) que a
+                        un texto con imágenes..
+                    </p>
+                </article>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <div>
+
+            </div>
+            <div>
+                <aside class="aside">
+                    <video autoplay muted controls playsinline preload="metadata">
+                        <source src="video/video_web.mp4" type="video/mp4" />
+                        <p>Este navegador no soporta videos.</p>
+                    </video>
+                </aside>
+                <br />
+                <div>
+                    <canvas id="canvas" width="150" height="150"></canvas>
+                    <script>
+                        function draw() {
+                            var canvas = document.getElementById('canvas');
+                            if (canvas.getContext) {
+                                var ctx = canvas.getContext('2d');
+
+                                ctx.beginPath();
+                                ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
+                                ctx.moveTo(110, 75);
+                                ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
+                                ctx.moveTo(65, 65);
+                                ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
+                                ctx.moveTo(95, 65);
+                                ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
+                                ctx.stroke();
+                            }
+                        }
+                        draw();
+                    </script>
+                </div>
+            </div>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <script src="js/three.js"></script>
-            <script>
-                const scene = new THREE.Scene();
-                const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            <div id="cubo" class="threejs"></canvas>
+                <script>
+                    const scene = new THREE.Scene();
+                    scene.background = new THREE.Color(0xffffff)
+                    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-                const renderer = new THREE.WebGLRenderer();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                document.body.appendChild(renderer.domElement);
+                    const renderer = new THREE.WebGLRenderer();
+                    renderer.setSize(640, 360);
+                    var divCubo = document.getElementById("cubo")
+                    divCubo.appendChild(renderer.domElement);
 
-                const geometry = new THREE.BoxGeometry();
-                const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-                const cube = new THREE.Mesh(geometry, material);
-                scene.add(cube);
+                    const geometry = new THREE.BoxGeometry();
+                    const material = new THREE.MeshBasicMaterial({ color: 0x0000aa });
+                    const cube = new THREE.Mesh(geometry, material);
+                    scene.add(cube);
 
-                camera.position.z = 5;
+                    camera.position.z = 2;
 
-                const animate = function () {
-                    requestAnimationFrame(animate);
+                    const animate = function () {
+                        requestAnimationFrame(animate);
 
-                    cube.rotation.x += 0.01;
-                    cube.rotation.y += 0.01;
+                        cube.rotation.x += 0.01;
+                        cube.rotation.y += 0.01;
 
-                    renderer.render(scene, camera);
-                };
+                        renderer.render(scene, camera);
+                    };
 
-                animate();
-            </script>
-        </canvas>
+                    animate();
+                </script>
+            </div>
+        </div>
     </div>
+
     <footer class="footer">
         <nav class="centeredText">
             <a href="https://github.com/josefigueirasm/PaginaHTML5-IGM.git">Repositorio GitHub</a>
